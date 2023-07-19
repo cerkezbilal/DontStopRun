@@ -48,6 +48,39 @@
                     "action": "HorizontalMove",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "GamePad",
+                    "id": "f0f897bb-dd2a-471d-8d74-f1e2b9174d7d",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "5ad11a1e-c159-4f75-9ee5-b5de836ac30d",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "7add08e0-73af-4b59-9148-580edfd87a1a",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

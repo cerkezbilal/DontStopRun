@@ -35,7 +35,9 @@ namespace DontStopRun.Controllers
 
         private void Update()
         {
+            
             _horizontal = _input.Horizontal;
+            Debug.Log(_horizontal);
         }
 
 
