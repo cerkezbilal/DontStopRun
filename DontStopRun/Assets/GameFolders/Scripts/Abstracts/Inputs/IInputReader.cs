@@ -8,6 +8,8 @@ namespace DontStopRun.Abstract.Inputs
     {
         float Horizontal { get;}
 
+        bool IsJump { get; }
+
     }
 }
 

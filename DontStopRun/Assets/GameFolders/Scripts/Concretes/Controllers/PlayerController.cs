@@ -13,7 +13,7 @@ namespace DontStopRun.Controllers
         
         [SerializeField] float _moveSpeed = 10f;
         [SerializeField] float _jumpForce = 300f;
-        [SerializeField] bool _isJump;
+       
 
 
         HorizontalMover _horizontalMover;
@@ -22,6 +22,8 @@ namespace DontStopRun.Controllers
         IInputReader _input;//Interface den değişken türettik
 
         float _horizontal;
+        bool _isJump;
+
 
 
         private void Awake()
@@ -37,7 +39,11 @@ namespace DontStopRun.Controllers
         {
             
             _horizontal = _input.Horizontal;
-            Debug.Log(_horizontal);
+            if (_input.IsJump)
+            {
+                _isJump = true;
+            }
+            
         }
 
 
@@ -48,7 +54,6 @@ namespace DontStopRun.Controllers
             if (_isJump)
             {
                 _jump.TickFixed(_jumpForce);
-                
 
             }
 

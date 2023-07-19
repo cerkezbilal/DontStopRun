@@ -8,7 +8,10 @@ namespace DontStopRun.Movements
     public class JumpWithRigidbody
     {
         Rigidbody _rigidbody;
-      
+
+        public bool CanJump => _rigidbody.velocity.y != 0;
+
+
 
         public JumpWithRigidbody(PlayerController playerController)
         {
@@ -22,7 +25,7 @@ namespace DontStopRun.Movements
         public void TickFixed(float jumpForce)
         {
             //Hava da demektir.Hata alırsak düzelticez(!)
-            //if (_rigidbody.velocity.y != 0) return;
+            if (CanJump) return;
 
             //Hava da değilse
             _rigidbody.velocity = Vector3.zero;
