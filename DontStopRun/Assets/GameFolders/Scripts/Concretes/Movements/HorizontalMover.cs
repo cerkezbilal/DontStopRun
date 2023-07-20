@@ -34,7 +34,7 @@ namespace DontStopRun.Movements
             float xBoundary = Mathf.Clamp(_playerController.transform.position.x, -_moveBoundary, _moveBoundary);
 
             _playerController.transform.position = new Vector3(xBoundary, _playerController.transform.position.y, _playerController.transform.position.z);
-
+            
         }
 
         #endregion
