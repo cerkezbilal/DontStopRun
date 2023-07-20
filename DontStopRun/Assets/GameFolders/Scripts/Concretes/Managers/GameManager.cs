@@ -8,6 +8,9 @@ namespace DontStopRun.Managers
 {
     public class GameManager : SingletonMonoBehaviorObject<GameManager>
     {
+
+        public event System.Action OnGameStop;
+
         void Awake()
         {
             SingletonThisObject(this);
@@ -18,6 +21,9 @@ namespace DontStopRun.Managers
         {
             //Oyunu tamamen durdurur
             Time.timeScale = 0f;
+
+            //Oyun durunca bu eventi çalıştır demek
+            OnGameStop?.Invoke();
         }
 
         public void LoadScene(string sceneName)
