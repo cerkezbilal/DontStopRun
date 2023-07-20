@@ -19,6 +19,18 @@ namespace DontStopRun.Managers
             Time.timeScale = 0f;
         }
 
+        public void LoadScene()
+        {
+            //Load işlemleri olacak
+            Debug.Log("Yeni Ekran");
+        }
+
+        public void ExitGame()
+        {
+            Debug.Log("Çıkış yapıldı");
+            Application.Quit();
+        }
+
 
 
     }//class
