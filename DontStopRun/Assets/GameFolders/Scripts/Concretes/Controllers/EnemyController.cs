@@ -9,6 +9,9 @@ namespace DontStopRun.Controllers
     {
         VerticalMover _mover;
         [SerializeField] float _moveSpeed = 7f;
+        [SerializeField] float _maxLifeTime = 10f;
+
+        float _currentLifeTime = 0f;
 
         public float MoveSpeed => _moveSpeed;
 
@@ -20,6 +23,22 @@ namespace DontStopRun.Controllers
         private void FixedUpdate()
         {
             _mover.FixedTick();
+        }
+
+        private void Update()
+        {
+            _currentLifeTime += Time.deltaTime;
+
+            if(_currentLifeTime > _maxLifeTime)
+            {
+                _currentLifeTime = 0f;
+                KillYourSelf();
+            }
+        }
+
+        void KillYourSelf()
+        {
+            Destroy(this.gameObject);
         }
 
 
