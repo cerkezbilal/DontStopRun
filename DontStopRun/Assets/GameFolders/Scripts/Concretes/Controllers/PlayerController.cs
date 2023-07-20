@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DontStopRun.Abstract.Inputs;
 using DontStopRun.Inputs;
+using DontStopRun.Managers;
 using DontStopRun.Movements;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -28,6 +29,8 @@ namespace DontStopRun.Controllers
         float _horizontal;
         bool _isJump;
 
+        bool _isDead = false;
+
         public float MoveSpeed => _moveSpeed;
 
         public float MoveBoundary => _moveBoundary;
@@ -44,7 +47,7 @@ namespace DontStopRun.Controllers
 
         private void Update()
         {
-            
+            if (_isDead) return;
             _horizontal = _input.Horizontal;
             
             if (_input.IsJump)
@@ -68,6 +71,16 @@ namespace DontStopRun.Controllers
             _isJump = false;
 
 
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            EnemyController enemyController = other.GetComponent<EnemyController>();
+            if (enemyController != null)
+            {
+                GameManager.Instace.StopGame();
+                _isDead = true;
+            }
         }
 
 
