@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DontStopRun.Abstract.Utilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DontStopRun.Managers
 {
@@ -19,10 +20,16 @@ namespace DontStopRun.Managers
             Time.timeScale = 0f;
         }
 
-        public void LoadScene()
+        public void LoadScene(string sceneName)
         {
-            //Load işlemleri olacak
-            Debug.Log("Yeni Ekran");
+
+            StartCoroutine(LoadSceneAsync(sceneName));
+        }
+
+        IEnumerator LoadSceneAsync(string sceneName)
+        {
+            Time.timeScale = 1f;
+            yield return SceneManager.LoadSceneAsync(sceneName);
         }
 
         public void ExitGame()

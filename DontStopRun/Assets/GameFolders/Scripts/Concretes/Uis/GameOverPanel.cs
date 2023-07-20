@@ -5,20 +5,18 @@ using UnityEngine;
 
 namespace DontStopRun.Uis
 {
-    public class MenuPanel : MonoBehaviour
+    public class GameOverPanel : MonoBehaviour
     {
 
-        public void StartButton()
+        public void YesButton()
         {
             GameManager.Instace.LoadScene("Game");
         }
 
-        public void ExitButton()
+        public void NoButton()
         {
-            GameManager.Instace.ExitGame();
+            GameManager.Instace.LoadScene("Menu");
         }
-
-
 
 
 
