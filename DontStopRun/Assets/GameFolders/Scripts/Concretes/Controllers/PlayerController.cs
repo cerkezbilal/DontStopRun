@@ -39,6 +39,7 @@ namespace DontStopRun.Controllers
         {
             
             _horizontal = _input.Horizontal;
+            Debug.Log(_horizontal);//Büyük ihtimalle joystickte sıfır olmuyor
             if (_input.IsJump)
             {
                 _isJump = true;

@@ -84,10 +84,10 @@ namespace DontStopRun.Inputs
                 },
                 {
                     ""name"": ""GamePad"",
-                    ""id"": ""f0f897bb-dd2a-471d-8d74-f1e2b9174d7d"",
+                    ""id"": ""1a11c79a-595a-486e-b0a6-cfb07baa2c43"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.45)"",
                     ""groups"": """",
                     ""action"": ""HorizontalMove"",
                     ""isComposite"": true,
@@ -95,7 +95,7 @@ namespace DontStopRun.Inputs
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""5ad11a1e-c159-4f75-9ee5-b5de836ac30d"",
+                    ""id"": ""f10e1d56-35b4-4864-a852-c48e279f6af2"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -106,7 +106,7 @@ namespace DontStopRun.Inputs
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""7add08e0-73af-4b59-9148-580edfd87a1a"",
+                    ""id"": ""de46f84d-527d-4de5-844e-dc8531b5c78f"",
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -119,6 +119,17 @@ namespace DontStopRun.Inputs
                     ""name"": """",
                     ""id"": ""f603dd75-f965-4e02-962a-4cd440dd4fd2"",
                     ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Tap(duration=0.01)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f921ad0a-9240-4cc8-9140-448f30f07fb1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": ""Tap(duration=0.01)"",
                     ""processors"": """",
                     ""groups"": """",
