@@ -13,6 +13,10 @@ namespace DontStopRun.Controllers
         
         [SerializeField] float _moveSpeed = 10f;
         [SerializeField] float _jumpForce = 300f;
+
+        //Bunu dışardan alalım ki ileride alanımızı genişletirsek yönetilebilir olsun
+
+        [SerializeField] float _moveBoundary = 4.5f;
        
 
 
@@ -24,6 +28,9 @@ namespace DontStopRun.Controllers
         float _horizontal;
         bool _isJump;
 
+        public float MoveSpeed => _moveSpeed;
+
+        public float MoveBoundary => _moveBoundary;
 
 
         private void Awake()
@@ -39,7 +46,7 @@ namespace DontStopRun.Controllers
         {
             
             _horizontal = _input.Horizontal;
-            Debug.Log(_horizontal);//Büyük ihtimalle joystickte sıfır olmuyor
+            
             if (_input.IsJump)
             {
                 _isJump = true;
@@ -50,7 +57,7 @@ namespace DontStopRun.Controllers
 
         private void FixedUpdate()
         {
-            _horizontalMover.TickFixed(_horizontal, _moveSpeed);
+            _horizontalMover.TickFixed(_horizontal);
 
             if (_isJump)
             {
