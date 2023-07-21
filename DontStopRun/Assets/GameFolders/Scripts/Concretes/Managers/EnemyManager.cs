@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DontStopRun.Abstract.Utilities;
 using DontStopRun.Controllers;
+using DontStopRun.Enums;
 using UnityEngine;
 
 namespace DontStopRun.Managers
@@ -11,7 +12,9 @@ namespace DontStopRun.Managers
         [SerializeField] EnemyController[] _enemyPrefabs;
 
         //Bir liste türüdür ama farkı sırası yoktur. Queue : Kuyruk demektir
-        Queue<EnemyController> _enemies = new Queue<EnemyController>();
+        Dictionary<EnemyEnum, Queue<EnemyController>> _enemies = new Dictionary<EnemyEnum, Queue<EnemyController>>();
+
+        
 
         private void Awake()
         {
@@ -26,24 +29,34 @@ namespace DontStopRun.Managers
         //Pool Sistemi oluştur demek Bu bir kere çalışcaz oyun ilk açıldığında
         void InitializePool()
         {
-            //sayıyı arttırabilirsiniz kurşun olsa daha fazla yapardık ama bizim
-
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < _enemyPrefabs.Length; i++)
             {
-                //Enemy objesinden 10 tane oluştur
-                EnemyController newEnemy = Instantiate(_enemyPrefabs[Random.Range(0,_enemyPrefabs.Length)]);//Örnek
+                Queue<EnemyController> enemyController = new Queue<EnemyController>();
+                //sayıyı arttırabilirsiniz kurşun olsa daha fazla yapardık ama bizim
 
-                //Oluşanları gizle ihtiyaç olunca çağırcaz
-                newEnemy.gameObject.SetActive(false);
+                for (int j = 0; j < 10; j++)
+                {
 
-                //Sahnede birikmesin diye EnemyManager altında topla
-                newEnemy.transform.parent = this.transform;
+                    //Enemy objesinden 10 tane oluştur
+                    EnemyController newEnemy = Instantiate(_enemyPrefabs[i]);//Örnek
 
-                //bunları kuyruğumuza(listemize) ekliyoruz)
-                _enemies.Enqueue(newEnemy);
+                    //Oluşanları gizle ihtiyaç olunca çağırcaz
+                    newEnemy.gameObject.SetActive(false);
+
+                    //Sahnede birikmesin diye EnemyManager altında topla
+                    newEnemy.transform.parent = this.transform;
+
+                    enemyController.Enqueue(newEnemy);
+
+                    
+                }
+                //Yani burda EnemyEnum un i si 0 1 2 
+                _enemies.Add((EnemyEnum)i, enemyController);
 
             }
            
+            
+
         }
         //Dışarıdan gelen düşmanı Pool havuzuna eklicek
         public void SetPool(EnemyController enemyController)
