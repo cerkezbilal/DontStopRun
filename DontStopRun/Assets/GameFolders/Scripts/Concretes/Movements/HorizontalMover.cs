@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using DontStopRun.Abstract.Controllers;
+using DontStopRun.Abstract.Movements;
 using DontStopRun.Controllers;
 using UnityEngine;
 
 namespace DontStopRun.Movements
 {
-    public class HorizontalMover 
+    public class HorizontalMover : IMover 
     {
 
         PlayerController _playerController;
@@ -20,7 +22,7 @@ namespace DontStopRun.Movements
         }
 
         #region Sağ Sol hareket işlemleri
-        public void TickFixed(float horizontal)
+        public void FixedTick(float horizontal)
         {
             //Sağa sola gidiş yoksa bişey yapma
             if (horizontal == 0) return;

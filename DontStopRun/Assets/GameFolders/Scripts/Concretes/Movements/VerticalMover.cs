@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DontStopRun.Abstract.Movements;
 using DontStopRun.Controllers;
 using UnityEngine;
 
 namespace DontStopRun.Movements
 {
-    public class VerticalMover 
+    public class VerticalMover : IMover
     {
         EnemyController _enemyController;
         float _moveSpeed;

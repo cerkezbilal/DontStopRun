@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DontStopRun.Abstract.Movements;
 using DontStopRun.Controllers;
 using UnityEngine;
 
 namespace DontStopRun.Movements
 {
-    public class JumpWithRigidbody
+    public class JumpWithRigidbody : IJump
     {
         Rigidbody _rigidbody;
 
@@ -22,7 +23,7 @@ namespace DontStopRun.Movements
 
         #region Zıplama işlemi
 
-        public void TickFixed(float jumpForce)
+        public void FixedTick(float jumpForce)
         {
             //Hava da demektir.Hata alırsak düzelticez(!)
             if (CanJump) return;

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using DontStopRun.Abstract.Controllers;
 using DontStopRun.Abstract.Inputs;
+using DontStopRun.Abstract.Movements;
 using DontStopRun.Inputs;
 using DontStopRun.Managers;
 using DontStopRun.Movements;
@@ -9,7 +11,7 @@ using UnityEngine.InputSystem;
 
 namespace DontStopRun.Controllers
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IEntityController
     {
         
         [SerializeField] float _moveSpeed = 10f;
@@ -21,8 +23,8 @@ namespace DontStopRun.Controllers
        
 
 
-        HorizontalMover _horizontalMover;
-        JumpWithRigidbody _jump;
+        IMover _mover;
+        IJump _jump;
 
         IInputReader _input;//Interface den değişken türettik
 
@@ -38,7 +40,7 @@ namespace DontStopRun.Controllers
 
         private void Awake()
         {
-            _horizontalMover = new HorizontalMover(this);
+            _mover = new HorizontalMover(this);
             _jump = new JumpWithRigidbody(this);
 
             //o değişkeni InputRerader a instace ettik 
@@ -60,11 +62,11 @@ namespace DontStopRun.Controllers
 
         private void FixedUpdate()
         {
-            _horizontalMover.TickFixed(_horizontal);
+            _mover.FixedTick(_horizontal);
 
             if (_isJump)
             {
-                _jump.TickFixed(_jumpForce);
+                _jump.FixedTick(_jumpForce);
 
             }
 
@@ -75,13 +77,15 @@ namespace DontStopRun.Controllers
 
         private void OnTriggerEnter(Collider other)
         {
-            EnemyController enemyController = other.GetComponent<EnemyController>();
-            if (enemyController != null)
+            IEntityController entityController = other.GetComponent<IEntityController>();
+            if (entityController != null)
             {
                 GameManager.Instace.StopGame();
                 _isDead = true;
             }
         }
+
+       
 
 
 

@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using DontStopRun.Abstract.Controllers;
+using DontStopRun.Abstract.Movements;
+using DontStopRun.Managers;
 using DontStopRun.Movements;
 using UnityEngine;
 
 namespace DontStopRun.Controllers
 {
-    public class EnemyController : MonoBehaviour
+    public class EnemyController : MonoBehaviour, IEntityController
     {
-        VerticalMover _mover;
+        IMover _mover;
         [SerializeField] float _moveSpeed = 7f;
         [SerializeField] float _maxLifeTime = 10f;
 
@@ -22,7 +25,7 @@ namespace DontStopRun.Controllers
 
         private void FixedUpdate()
         {
-            _mover.FixedTick();
+            _mover.FixedTick(1);
         }
 
         private void Update()
@@ -38,7 +41,7 @@ namespace DontStopRun.Controllers
 
         void KillYourSelf()
         {
-            Destroy(this.gameObject);
+            EnemyManager.Instace.SetPool(this);
         }
 
 
