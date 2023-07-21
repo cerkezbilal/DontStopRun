@@ -66,22 +66,35 @@ namespace DontStopRun.Managers
 
             //Geri gönderileni tekrar gizle
             enemyController.gameObject.SetActive(false);
-            //Parametre olarak geleni kuyruğa ekle
-            _enemies.Enqueue(enemyController);
+
+            //bu bize starndart Height gibi verileri dönecek
+            Queue<EnemyController> enemyControllers = _enemies[enemyController.EnemyType];
+
+            //Oluşturduğu Kuyruğa parametre olarak gelen EnemyController ekledim
+            enemyControllers.Enqueue(enemyController);
+            
         }
 
         //Enemy yi havuzdan çıkar yani kullan.
-        public EnemyController GetPool()
+        public EnemyController GetPool(EnemyEnum enemyType)
         {
-            //Böyle bir nesne yoksa
-            if(_enemies.Count == 0)
-            {
-                //Bu fonksiyon ile oluştur
-                InitializePool();
-            }
+            
+            Queue<EnemyController> enemyControllers = _enemies[enemyType];
 
-            //Böyle bir nesne varsa Sıradakini dön demek
-            return _enemies.Dequeue();
+            //Eğer bu türde enum yoksa oluştur
+            if (enemyControllers.Count == 0)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    //Yedekte kalsın biri her ihtimale karşı.
+                    EnemyController newEnemy = Instantiate(_enemyPrefabs[(int)enemyType]);
+                    enemyControllers.Enqueue(newEnemy);
+
+                }
+                
+            }
+            return enemyControllers.Dequeue();
+
         }
     }//class
 }

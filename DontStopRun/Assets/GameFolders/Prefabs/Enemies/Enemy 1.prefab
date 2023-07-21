@@ -137,6 +137,10 @@ PrefabInstance:
       value: Enemy 1
       objectReference: {fileID: 0}
     - target: {fileID: 7831908558610236264, guid: e3c580570b56647d8981ea01d6edd859, type: 3}
+      propertyPath: _enemyEnum
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831908558610236264, guid: e3c580570b56647d8981ea01d6edd859, type: 3}
       propertyPath: _maxLifeTime
       value: 8
       objectReference: {fileID: 0}

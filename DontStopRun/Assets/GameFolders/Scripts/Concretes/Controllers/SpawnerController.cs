@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DontStopRun.Enums;
 using DontStopRun.Managers;
 using UnityEngine;
 
@@ -41,8 +42,9 @@ namespace DontStopRun.Controllers
 
         void Spawn()
         {
+           
             //düşman Oluşturma işlemi.
-            EnemyController newEnemy = EnemyManager.Instace.GetPool();
+            EnemyController newEnemy = EnemyManager.Instace.GetPool((EnemyEnum)Random.Range(0,4));
             newEnemy.transform.parent = this.transform;
             newEnemy.transform.position = this.transform.position;
             newEnemy.gameObject.SetActive(true);
