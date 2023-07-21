@@ -20,6 +20,14 @@ namespace DontStopRun.Controllers
 
         float _currentSpanwTime = 0f;
 
+        float _index = 0;
+        float _maxAddEnemyTime;
+
+        public bool CanIncrease => _index < EnemyManager.Instace.Count;
+
+
+
+
         private void OnEnable()
         {
 
@@ -37,14 +45,33 @@ namespace DontStopRun.Controllers
                 Spawn();
                 
             }
+
+            if (!CanIncrease) return;
+
+            if (_maxAddEnemyTime < Time.time)
+            {
+                _maxAddEnemyTime = Time.time + EnemyManager.Instace.AddDelayTime;
+
+                IncreaseIndex();
+
+            }
             
+        }
+
+        private void IncreaseIndex()
+        {
+            if(CanIncrease)
+            {
+                //index küçükse Count dan index artsın
+                _index++;
+            }
         }
 
         void Spawn()
         {
            
             //düşman Oluşturma işlemi.
-            EnemyController newEnemy = EnemyManager.Instace.GetPool((EnemyEnum)Random.Range(0,4));
+            EnemyController newEnemy = EnemyManager.Instace.GetPool((EnemyEnum)Random.Range(0,_index));
             newEnemy.transform.parent = this.transform;
             newEnemy.transform.position = this.transform.position;
             newEnemy.gameObject.SetActive(true);

@@ -540,6 +540,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1551602080904097224, guid: cacab293486d74c7ea27ec07069ae3cd, type: 3}
+      propertyPath: _addDelayTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5822186620014193300, guid: cacab293486d74c7ea27ec07069ae3cd, type: 3}
       propertyPath: m_Name
       value: '[EnemyManager]'

@@ -10,11 +10,17 @@ namespace DontStopRun.Managers
     public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
     {
         [SerializeField] EnemyController[] _enemyPrefabs;
+        [SerializeField] float _addDelayTime = 50f;
 
         //Bir liste türüdür ama farkı sırası yoktur. Queue : Kuyruk demektir
         Dictionary<EnemyEnum, Queue<EnemyController>> _enemies = new Dictionary<EnemyEnum, Queue<EnemyController>>();
 
-        
+        public float AddDelayTime => _addDelayTime;
+
+        public float Count => _enemyPrefabs.Length;
+
+
+
 
         private void Awake()
         {
