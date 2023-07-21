@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using DontStopRun.Abstract.Utilities;
@@ -9,7 +8,7 @@ namespace DontStopRun.Managers
 {
     public class EnemyManager : SingletonMonoBehaviorObject<EnemyManager>
     {
-        [SerializeField] EnemyController _enemyPrefab;
+        [SerializeField] EnemyController[] _enemyPrefabs;
 
         //Bir liste türüdür ama farkı sırası yoktur. Queue : Kuyruk demektir
         Queue<EnemyController> _enemies = new Queue<EnemyController>();
@@ -28,11 +27,11 @@ namespace DontStopRun.Managers
         void InitializePool()
         {
             //sayıyı arttırabilirsiniz kurşun olsa daha fazla yapardık ama bizim
-           
-            for (int i = 0;  i< 10; i++)
+
+            for (int i = 0; i < 10; i++)
             {
                 //Enemy objesinden 10 tane oluştur
-                EnemyController newEnemy = Instantiate(_enemyPrefab);
+                EnemyController newEnemy = Instantiate(_enemyPrefabs[Random.Range(0,_enemyPrefabs.Length)]);//Örnek
 
                 //Oluşanları gizle ihtiyaç olunca çağırcaz
                 newEnemy.gameObject.SetActive(false);
