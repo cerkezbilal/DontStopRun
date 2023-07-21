@@ -8,6 +8,11 @@ namespace DontStopRun.Abstract.Controllers
 
         Transform transform { get; }
 
+        float MoveSpeed { get;}
+
+        float MoveBoundary { get; }
+
+
 
     }
 }

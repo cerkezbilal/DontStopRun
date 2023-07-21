@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DontStopRun.Abstract.Controllers;
 using DontStopRun.Abstract.Movements;
 using DontStopRun.Controllers;
 using UnityEngine;
@@ -8,12 +9,12 @@ namespace DontStopRun.Movements
 {
     public class VerticalMover : IMover
     {
-        EnemyController _enemyController;
+        IEntityController _enemyController;
         float _moveSpeed;
 
-        public VerticalMover(EnemyController enemyController)
+        public VerticalMover(IEntityController entityController)
         {
-            _enemyController = enemyController;
+            _enemyController = entityController;
             _moveSpeed = _enemyController.MoveSpeed;
         }
 

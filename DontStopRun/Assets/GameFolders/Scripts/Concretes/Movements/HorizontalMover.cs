@@ -10,13 +10,13 @@ namespace DontStopRun.Movements
     public class HorizontalMover : IMover 
     {
 
-        PlayerController _playerController;
+        IEntityController _playerController;
         float _moveSpeed;
         float _moveBoundary;
 
-        public HorizontalMover(PlayerController playerController)
+        public HorizontalMover(IEntityController entityController)
         {
-            _playerController = playerController;
+            _playerController = entityController;
             _moveSpeed = _playerController.MoveSpeed;
             _moveBoundary = _playerController.MoveBoundary;
         }

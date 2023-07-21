@@ -11,17 +11,11 @@ using UnityEngine.InputSystem;
 
 namespace DontStopRun.Controllers
 {
-    public class PlayerController : MonoBehaviour, IEntityController
+    public class PlayerController : MyCharacterController, IEntityController
     {
         
-        [SerializeField] float _moveSpeed = 10f;
+     
         [SerializeField] float _jumpForce = 300f;
-
-        //Bunu dışardan alalım ki ileride alanımızı genişletirsek yönetilebilir olsun
-
-        [SerializeField] float _moveBoundary = 4.5f;
-       
-
 
         IMover _mover;
         IJump _jump;
@@ -33,9 +27,7 @@ namespace DontStopRun.Controllers
 
         bool _isDead = false;
 
-        public float MoveSpeed => _moveSpeed;
-
-        public float MoveBoundary => _moveBoundary;
+       
 
 
         private void Awake()
