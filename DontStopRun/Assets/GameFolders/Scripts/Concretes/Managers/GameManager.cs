@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DontStopRun.Abstract.Utilities;
+using DontStopRun.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,10 @@ namespace DontStopRun.Managers
 {
     public class GameManager : SingletonMonoBehaviorObject<GameManager>
     {
+        [SerializeField] LevelDifficultyData[] _levelDifficultyDatas;
+
+        public LevelDifficultyData levelDifficultyData => _levelDifficultyDatas[0];
+
 
         public event System.Action OnGameStop;
 
