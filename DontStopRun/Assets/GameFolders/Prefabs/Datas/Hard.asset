@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dabf1acc6f7d74bc7bf03bba6efa0cc9, type: 3}
   m_Name: Hard
   m_EditorClassIdentifier: 
-  _floorPrefabs: {fileID: 0}
-  _spawnersPrefab: {fileID: 0}
+  _floorPrefabs: {fileID: 2003121099116317836, guid: 4c074cdd1782a46cd8d2d12de6650bb1, type: 3}
+  _spawnersPrefab: {fileID: 1788999770887924640, guid: 88ce5aef0d43542f0ac812e841dd0006, type: 3}
   _skyboxMaterial: {fileID: 2100000, guid: b9be0c15efe8ad9489fdeead114d8ec5, type: 2}
-  _moveSpeed: 22
+  _moveSpeed: 28
+  _addDelayTime: 15

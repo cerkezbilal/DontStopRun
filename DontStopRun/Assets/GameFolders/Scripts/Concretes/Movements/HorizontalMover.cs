@@ -11,14 +11,12 @@ namespace DontStopRun.Movements
     {
 
         IEntityController _playerController;
-        float _moveSpeed;
-        float _moveBoundary;
+        
 
         public HorizontalMover(IEntityController entityController)
         {
             _playerController = entityController;
-            _moveSpeed = _playerController.MoveSpeed;
-            _moveBoundary = _playerController.MoveBoundary;
+            
         }
 
         #region Sağ Sol hareket işlemleri
@@ -30,10 +28,10 @@ namespace DontStopRun.Movements
 
             //Eğer sağa sola gidiş varsa gönderdiğimiz horizontala göre(+ sağ - sol demek karakteri translate yani hareket ettir.
 
-            _playerController.transform.Translate(Vector3.right * horizontal * Time.deltaTime * _moveSpeed);
+            _playerController.transform.Translate(Vector3.right * horizontal * Time.deltaTime * _playerController.MoveSpeed);
 
             //Clamps girilen birinci parametre, ikincisi min değer üçüncüsü max değer. Bu fonksiyon girilen birinci değerin min ve max değer aralığında olup olmadığını kontrol eder.
-            float xBoundary = Mathf.Clamp(_playerController.transform.position.x, -_moveBoundary, _moveBoundary);
+            float xBoundary = Mathf.Clamp(_playerController.transform.position.x, -_playerController.MoveBoundary, _playerController.MoveBoundary);
 
             _playerController.transform.position = new Vector3(xBoundary, _playerController.transform.position.y, _playerController.transform.position.z);
             

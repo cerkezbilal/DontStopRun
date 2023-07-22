@@ -11,7 +11,7 @@ namespace DontStopRun.Managers
     {
         [SerializeField] LevelDifficultyData[] _levelDifficultyDatas;
 
-        public LevelDifficultyData levelDifficultyData => _levelDifficultyDatas[1];//Şimdilik 0 ı alıyoruz easy hazır çünkü
+        public LevelDifficultyData levelDifficultyData => _levelDifficultyDatas[2];//Şimdilik 0 ı alıyoruz easy hazır çünkü
 
 
         public event System.Action OnGameStop;

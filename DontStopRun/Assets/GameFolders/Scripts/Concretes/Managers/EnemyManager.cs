@@ -66,11 +66,13 @@ namespace DontStopRun.Managers
         //Dışarıdan gelen düşmanı Pool havuzuna eklicek
         public void SetPool(EnemyController enemyController)
         {
-            //Düzen. Manager altına koy
-            enemyController.transform.parent = this.transform;
+           
 
             //Geri gönderileni tekrar gizle
             enemyController.gameObject.SetActive(false);
+
+            //Düzen. Manager altına koy
+            enemyController.transform.parent = this.transform;
 
             //bu bize starndart Height gibi verileri dönecek
             Queue<EnemyController> enemyControllers = _enemies[enemyController.EnemyType];
@@ -107,6 +109,11 @@ namespace DontStopRun.Managers
         public void SetMoveSpeed(float moveSpeed)
         {
             _moveSpeed = moveSpeed;
+        }
+
+        public void SetAddDelayTime(float addDelayTime)
+        {
+            _addDelayTime = addDelayTime;
         }
     }//class
 }

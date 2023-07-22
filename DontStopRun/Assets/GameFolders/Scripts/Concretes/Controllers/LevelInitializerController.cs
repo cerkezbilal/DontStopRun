@@ -22,6 +22,7 @@ namespace DontStopRun.Controllers
             Instantiate(_levelDifficultyData.FloorPrefab);
             Instantiate(_levelDifficultyData.SpawnersPrefab);
             EnemyManager.Instace.SetMoveSpeed(_levelDifficultyData.MoveSpeed);
+            EnemyManager.Instace.SetAddDelayTime(_levelDifficultyData.AddDelayTime);
         }
     }
 }

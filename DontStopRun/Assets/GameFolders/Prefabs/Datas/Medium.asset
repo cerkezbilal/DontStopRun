@@ -15,4 +15,5 @@ MonoBehaviour:
   _floorPrefabs: {fileID: 9022199183751400243, guid: e17aaee44e9b4409299d37dd4ed3b1ce, type: 3}
   _spawnersPrefab: {fileID: 5978917380325725894, guid: 2fc525d77f9944cf3857ec1ec2629f9f, type: 3}
   _skyboxMaterial: {fileID: 2100000, guid: 966766f4829d6ad419eaaf7cf0712f85, type: 2}
-  _moveSpeed: 18
+  _moveSpeed: 17
+  _addDelayTime: 30
