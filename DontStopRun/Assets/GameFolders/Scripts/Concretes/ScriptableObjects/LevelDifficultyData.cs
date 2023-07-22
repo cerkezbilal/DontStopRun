@@ -11,11 +11,14 @@ namespace DontStopRun.ScriptableObjects
         [SerializeField] FloorController _floorPrefabs;
         [SerializeField] GameObject _spawnersPrefab;
         [SerializeField] Material _skyboxMaterial;
+        [SerializeField] float _moveSpeed = 7f;
 
         public FloorController FloorPrefab => _floorPrefabs;
         public GameObject SpawnersPrefab => _spawnersPrefab;
         public Material SkyboxMaterial => _skyboxMaterial;
-            
+        public float MoveSpeed => _moveSpeed;
+
+
 
 
 

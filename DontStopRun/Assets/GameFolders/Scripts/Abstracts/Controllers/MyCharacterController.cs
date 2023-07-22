@@ -7,7 +7,7 @@ namespace DontStopRun.Abstract.Controllers
     public abstract class MyCharacterController: MonoBehaviour
     {
         [SerializeField] float _moveBoundary = 4.5f;
-        [SerializeField] float _moveSpeed = 7f;
+        [SerializeField] protected float _moveSpeed = 7f;
 
         public float MoveSpeed => _moveSpeed;
 

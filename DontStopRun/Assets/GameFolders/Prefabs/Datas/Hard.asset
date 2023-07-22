@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _floorPrefabs: {fileID: 0}
   _spawnersPrefab: {fileID: 0}
-  _skyboxMaterial: {fileID: 0}
+  _skyboxMaterial: {fileID: 2100000, guid: b9be0c15efe8ad9489fdeead114d8ec5, type: 2}
+  _moveSpeed: 22

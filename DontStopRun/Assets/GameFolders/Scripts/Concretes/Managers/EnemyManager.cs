@@ -19,8 +19,7 @@ namespace DontStopRun.Managers
 
         public float Count => _enemyPrefabs.Length;
 
-
-
+        float _moveSpeed;
 
         private void Awake()
         {
@@ -99,8 +98,15 @@ namespace DontStopRun.Managers
                 }
                 
             }
-            return enemyControllers.Dequeue();
+            EnemyController enemyController = enemyControllers.Dequeue();
+            enemyController.SetMoveSpeed(_moveSpeed);
+            return enemyController;
 
+        }
+
+        public void SetMoveSpeed(float moveSpeed)
+        {
+            _moveSpeed = moveSpeed;
         }
     }//class
 }

@@ -47,6 +47,12 @@ namespace DontStopRun.Controllers
             EnemyManager.Instace.SetPool(this);
         }
 
+        public void SetMoveSpeed(float moveSpeed)
+        {
+            if (moveSpeed < _moveSpeed) return;
+            _moveSpeed = moveSpeed;
+        }
+
 
     }//class
 }

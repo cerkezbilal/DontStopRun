@@ -17,9 +17,11 @@ namespace DontStopRun.Controllers
 
         private void Start()
         {
+            //Oluşturma ve ekleme işlemleri
             RenderSettings.skybox = _levelDifficultyData.SkyboxMaterial;
             Instantiate(_levelDifficultyData.FloorPrefab);
             Instantiate(_levelDifficultyData.SpawnersPrefab);
+            EnemyManager.Instace.SetMoveSpeed(_levelDifficultyData.MoveSpeed);
         }
     }
 }
