@@ -9,12 +9,33 @@ namespace DontStopRun.Managers
 {
     public class GameManager : SingletonMonoBehaviorObject<GameManager>
     {
+
+
         [SerializeField] LevelDifficultyData[] _levelDifficultyDatas;
 
-        public LevelDifficultyData levelDifficultyData => _levelDifficultyDatas[2];//Şimdilik 0 ı alıyoruz easy hazır çünkü
+        public LevelDifficultyData levelDifficultyData => _levelDifficultyDatas[DifficultyIndex];//Şimdilik 0 ı alıyoruz easy hazır çünkü
 
+        int _difficultyIndex;
 
         public event System.Action OnGameStop;
+
+        public int DifficultyIndex {
+
+            get => _difficultyIndex;
+            set
+            {
+                //Yani indexte hata olursa direk menüye dön
+                if(_difficultyIndex < 0 || _difficultyIndex > _levelDifficultyDatas.Length)
+                {
+                    LoadSceneAsync("Menu");
+                }
+                else
+                {
+                    _difficultyIndex = value;
+                }
+            }
+        }
+
 
         void Awake()
         {
@@ -33,7 +54,7 @@ namespace DontStopRun.Managers
 
         public void LoadScene(string sceneName)
         {
-
+            
             StartCoroutine(LoadSceneAsync(sceneName));
         }
 

@@ -95,6 +95,7 @@ namespace DontStopRun.Managers
                 {
                     //Yedekte kalsın biri her ihtimale karşı.
                     EnemyController newEnemy = Instantiate(_enemyPrefabs[(int)enemyType]);
+                    newEnemy.gameObject.SetActive(false);//Bunu ekledik
                     enemyControllers.Enqueue(newEnemy);
 
                 }

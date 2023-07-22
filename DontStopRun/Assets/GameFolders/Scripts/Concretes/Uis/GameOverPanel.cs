@@ -7,7 +7,7 @@ namespace DontStopRun.Uis
 {
     public class GameOverPanel : MonoBehaviour
     {
-
+       
         public void YesButton()
         {
             GameManager.Instace.LoadScene("Game");

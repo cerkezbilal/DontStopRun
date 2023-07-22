@@ -8,8 +8,9 @@ namespace DontStopRun.Uis
     public class MenuPanel : MonoBehaviour
     {
 
-        public void StartButton()
+        public void SelectAndStartButton(int index)
         {
+            GameManager.Instace.DifficultyIndex = index;
             GameManager.Instace.LoadScene("Game");
         }
 
